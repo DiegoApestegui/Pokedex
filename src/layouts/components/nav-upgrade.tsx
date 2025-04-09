@@ -21,7 +21,7 @@ export function NavUpgrade({ sx, ...other }: StackProps) {
       ]}
       {...other}
     >
-      <Typography
+      {/* <Typography
         variant="h6"
         sx={[
           (theme) => ({
@@ -58,7 +58,7 @@ export function NavUpgrade({ sx, ...other }: StackProps) {
         color="inherit"
       >
         Upgrade to Pro
-      </Button>
+      </Button> */}
     </Box>
   );
 }
