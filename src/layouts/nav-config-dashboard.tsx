@@ -9,7 +9,9 @@ export type NavItem = {
   title: string;
   path: string;
   icon: React.ReactNode;
+  urlRegion: string;
   info?: React.ReactNode;
+
 };
 
 export const navData = [

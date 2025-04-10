@@ -1,6 +1,6 @@
 import type { Theme, SxProps, Breakpoint } from '@mui/material/styles';
 
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { varAlpha } from 'minimal-shared/utils';
 
 import Box from '@mui/material/Box';
@@ -21,6 +21,7 @@ import { WorkspacesPopover } from '../components/workspaces-popover';
 import type { NavItem } from '../nav-config-dashboard';
 import type { WorkspacesPopoverProps } from '../components/workspaces-popover';
 
+import { DataContext } from 'src/context/DataContext';
 // ----------------------------------------------------------------------
 
 export type NavContentProps = {
@@ -108,7 +109,17 @@ export function NavMobile({
 // ----------------------------------------------------------------------
 
 export function NavContent({ data, slots, workspaces, sx }: NavContentProps) {
+  
+  const {region,setRegion} = useContext(DataContext)
+
   const pathname = usePathname();
+
+  const cambioRegion = (title: string,urlRegion: string) => {
+    setRegion({
+      name:title,
+      url:urlRegion,
+    })
+  }
 
   return (
     <>
@@ -140,13 +151,13 @@ export function NavContent({ data, slots, workspaces, sx }: NavContentProps) {
           >
             {data.map((item) => {
               const isActived = item.path === pathname;
-
               return (
                 <ListItem disableGutters disablePadding key={item.title}>
                   <ListItemButton
                     disableGutters
                     component={RouterLink}
                     href={item.path}
+                    onClick={() => cambioRegion(item.title,item.urlRegion)}
                     sx={[
                       (theme) => ({
                         pl: 2,

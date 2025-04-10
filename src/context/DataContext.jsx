@@ -3,7 +3,7 @@ import React,{ useState,useContext} from "react";
 export const DataContext = React.createContext();
 
 const Data = {
-    name: 'Kanto',
+    name: 'algo',
     url: 'algo',
 }
 

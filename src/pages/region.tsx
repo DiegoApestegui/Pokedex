@@ -1,7 +1,6 @@
 import { CONFIG } from 'src/config-global';
 
-import { ProductsView } from 'src/sections/product/view';
-
+import { RegionView } from 'src/sections/region/view';
 // ----------------------------------------------------------------------
 
 export default function Page() {
@@ -9,7 +8,7 @@ export default function Page() {
     <>
       <title>Region</title>
 
-      <ProductsView />
+      <RegionView />
     </>
   );
 }

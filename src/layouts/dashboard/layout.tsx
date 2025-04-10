@@ -3,7 +3,7 @@ import type { Breakpoint } from '@mui/material/styles';
 import axios from 'axios';
 import { useState,useEffect,useContext } from 'react';
 
-import { DataContext } from 'src/context/DataContex';
+import { DataContext } from 'src/context/DataContext';
 
 import { merge } from 'es-toolkit';
 
@@ -67,6 +67,7 @@ export function DashboardLayout({
     title: string;
     path: string;
     icon: React.ReactNode;
+    urlRegion: string;
     info?: React.ReactNode;
   }
 
@@ -80,8 +81,9 @@ export function DashboardLayout({
       .then(response => {
         const regionsData = response.data.results.map((region: Region) => ({
           title: region.name,
-          path: '/products',
+          path: '/region',
           icon: icon('ic-analytics'),
+          urlRegion: region.url,
       }));
         setRegions(regionsData);
     })
@@ -95,6 +97,7 @@ export function DashboardLayout({
       title: 'página de inicio',
       path: '/',
       icon: icon('ic-analytics'),
+      urlRegion: 'algo'
     },
     ...regions,
     //...navData,

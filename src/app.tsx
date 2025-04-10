@@ -10,7 +10,7 @@ import { ThemeProvider } from 'src/theme/theme-provider';
 
 import { Iconify } from 'src/components/iconify';
 
-import { DataProvider } from './context/DataContex';
+import { DataProvider } from './context/DataContext';
 
 // ----------------------------------------------------------------------
 
